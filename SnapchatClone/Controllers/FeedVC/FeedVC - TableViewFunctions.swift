@@ -11,7 +11,7 @@ import UIKit
 extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         /* PART 2B START */
-        return 2019201
+        return arrayOfSnaps.count
         /* PART 2B FINISH */
     }
     
@@ -28,7 +28,7 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         /* PART 2C START */
-
+        cell.textLabel!.text = arrayOfSnaps[index].sender
         /* PART 2C FINISH*/
         return cell
     }

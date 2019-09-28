@@ -53,7 +53,7 @@ class FeedVC: UIViewController {
     
     func setupTableView() {
         /* PART 2A START */
-    
+        tableView.reloadData()
         /* PART 2A FINISH */
     }
     

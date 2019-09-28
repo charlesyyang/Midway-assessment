@@ -24,6 +24,7 @@ class ShowImageVC: UIViewController {
     
     @objc func done() {
         performSegue(withIdentifier: "toFeedFromShowImage", sender: self)
+        //segue backwards i dont know how tho but i know its here
     }
  
 

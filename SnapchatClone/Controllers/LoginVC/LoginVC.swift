@@ -54,6 +54,19 @@ class LoginVC: UIViewController {
         var email = "wubba@lubbadubdub.com"
         var password = "ImMrMeeseeks"
         /* PART 1A START*/
+        if emailTextField == nil {
+            self.displayAlert(title: "There was an error", message: "Please input a valid email")
+            return
+        } else {
+            email = emailTextField.text!
+        }
+        
+        if passwordTextField == nil  {
+            self.displayAlert(title: "There was an error", message: "Please in put a valid password")
+            return
+        } else {
+            password = passwordTextField.text!
+        }
         
         /* PART 1A FINISH*/
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
@@ -77,7 +90,35 @@ class LoginVC: UIViewController {
         var email = "wubba@lubbadubdub.com"
         var password = "ImMrMeeseeks"
         /* PART 1B START*/
+        if nameTextField == nil {
+            self.displayAlert(title: "There was an error", message: "Please input a valid name")
+            return
+        } else {
+            name = nameTextField.text!
+        }
         
+        if phoneNumberTextField == nil {
+            self.displayAlert(title: "There was an error", message: "Please input a phone number")
+            return
+        } else if phoneNumberTextField.text?.count != 7 {
+            self.displayAlert(title: "There was an error", message: "Please input a valid phone number")
+        } else {
+            number = phoneNumberTextField.text!
+        }
+        
+        if emailTextField == nil {
+            self.displayAlert(title: "There was an error", message: "Please input a valid email")
+            return
+        } else {
+            email = emailTextField.text!
+        }
+        
+        if passwordTextField == nil  {
+            self.displayAlert(title: "There was an error", message: "Please in put a valid password")
+            return
+        } else {
+            password = passwordTextField.text!
+        }
         /* PART 1B FINISH*/
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
@@ -129,7 +170,11 @@ class LoginVC: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         /* PART 1C START*/
-        
+        if segue.destination is FeedVC
+        {
+            let vc = segue.destination as? FeedVC
+            vc?.userID = ourUserID
+        }
         /* PART 1C FINISH*/
     }
 }
